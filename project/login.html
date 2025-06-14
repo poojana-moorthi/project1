@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>LogIn</title>
 </head>
-<body>
 
-    <form action="">
+<body>
+    <form id="form">
         <h1>Login</h1>
         <label for="email">Email:</label>
-        <input type="email"placeholder="enter your email" required>
+        <input id="email" type="text" placeholder="Enter the email" required>
         <br><br>
-        <label for="password">password:</label>
-        <input type="password"placeholder="enter your password" required maxlength="8">
+        <label for="password">Password:</label>
+        <input id="password" type="password" placeholder="Enter the password" required maxlength="8">
         <br><br>
-        <label for="feedback:"></label>
-        <textarea name="feedback" id="feedback" placeholder="enter your feedback" maxlength="180"></textarea>
-        <br><br>
-        <label for="gender">gender:</label>
-        <select name="gender" id="gender">
-        <option value="select">select</option>
-        <option value="male">male</option>
-        <option value="female">female</option>
-        </select>
-        <br><br>
-        <button>sumbit</button>
+        
+        <button type="submit">submit</button>
+        <h1 id="result1"></h1>
+        <h1 id="result2"></h1>
     </form>
+    <script>
+        document.getElementById("form").addEventListener("submit",function(e){
+            e.preventDefault();
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            console.log(email,password)
+            document.getElementById("result1").textContent=email
+            document.getElementById("result2").textContent=password
+        })
+    </script>
 </body>
+
 </html>
