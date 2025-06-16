@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 1000px;
+        }
+
+        #form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        h1, h2, h3, h4 {
+            font-size: small;
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" placeholder="Enter your email" required>
+
+        <label for="rollno">Roll.no:</label>
+        <input type="text" id="rollno" placeholder="Enter your roll no" required>
+
+        <label for="phno">Ph.no:</label>
+        <input type="text" id="phno" placeholder="Enter your phone no" required maxlength="10">
+
+        <button type="submit">Submit</button>
+
+        <h1 id="r1"></h1>
+        <h2 id="r2"></h2>
+        <h3 id="r3"></h3>
+        <h4 id="r4"></h4>
+    </form>
+
+    <script>
+        document.getElementById("form").addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const rollno = document.getElementById("rollno").value;
+            const phno = document.getElementById("phno").value;
+
+            if (phno.length !== 10) {
+                alert("Phone number must be exactly 10 digits.");
+                return;
+            }
+
+            document.getElementById("r1").textContent = "Name: " + name;
+            document.getElementById("r2").textContent = "Email: " + email;
+            document.getElementById("r3").textContent = "Roll No: " + rollno;
+            document.getElementById("r4").textContent = "Phone No: " + phno;
+        });
+    </script>
+
+</body>
+</html>
